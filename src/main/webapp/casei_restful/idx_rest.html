@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Case I. REST / JAX-RS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+        <script  type="text/javascript" src="../js/casei_rest.js"></script>
+    </head>
+    <body>
+        <form class="pure-form" style="width: 700px; margin: 0px auto; padding-top: 20px;">
+            <h2>Case I. REST / JAX-RS</h2>
+            <a href="./idx_jaxrs.html">@see JAX-RS</a>
+            <br><br>
+            <fieldset>
+                <legend>
+                    <h3><b>User REST</b></h3>
+                    利用 Servlet 透過請求方法及 URI 來設計，決定執行 CRUD 的動作
+                </legend>
+                <table>
+                    <tr>
+                        <td>Create:&emsp;</td>
+                        <td>
+                            <input type="text" placeholder="User Name" id="createname" >
+                            <button type="button" class="pure-button pure-button-primary" onclick="createUser()" >Create</button><p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Read:&emsp;</td>
+                        <td><input type="number" placeholder="ID" id="readid">
+                            <button type="button" class="pure-button pure-button-primary" onclick="queryUser()" >Query User</button>
+                            &emsp;
+                            <button type="button" class="pure-button pure-button-primary" onclick="queryUsers()" >Query Users</button><p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Update:&emsp;</td>
+                        <td><input type="number" placeholder="ID" id="updateid">    
+                            <input type="text" placeholder="User Name" id="updatename">
+                            <button type="button" class="pure-button pure-button-primary" onclick="updateUser()">Update</button><p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Delete:&emsp;</td>
+                        <td><input type="number" placeholder="ID" id="deleteid">
+                            <button type="button" class="pure-button pure-button-primary" onclick="deleteUser()">Delete</button><p>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <table>
+                <tr>
+                <div><br>Request URL:</div>
+                <td>
+                    <div id="req_method">(method)</div>
+                </td>
+                <td>
+                    <div id="req_url">url</div>
+                </td>
+                </tr>
+            </table>
+
+            <div><br>JSON:</div>
+            <div id="req_result">(data)</div>
+            
+        </form>
+    </body>
+</html>

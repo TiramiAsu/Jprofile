@@ -3,35 +3,62 @@
     <td style="border:0px"><h1>J profile</h1></td>
 </table>
 
-## Case I. REST
+## Case I. RESTful
 
-利用 Ajax 與 Servlet 設計 URI ，以 RESTful 的方式處理 Request ，完成 CRUD 的動作
+以 DAO 架構為基礎，利用 Ajax 與 Servlet 設計 [URI](#uri) ，以 RESTful 的方式處理 HttpRequest ，對資料庫完成 CRUD 的動作。除了基本的 REST 設計方式外，另外以 JAX-RS 來對照兩者撰寫差異
 
-
-
-#### CRUD Case:
-
-| Action | Description                                      | Parameter                      |
-| ------ | ------------------------------------------------ | ------------------------------ |
-| Create | 新增 "Cano"                                      | createname="Cano"              |
-| Read   | 1: 查詢 id=2 的資料<br />2: 查詢全部             | 1: id=2<br />2: (no Parameter) |
-| Update | 修改 id=0 的資料，<br />新的 UserName ="Cano Su" | id=0, updatename="Cano Su"     |
-| Delete | 刪除 id=3 的資料                                 | id=3                           |
+* REST: 利用 Servlet 透過請求方法及 URI 來設計，決定執行 CRUD 的動作
+* JAX-RS: 利用 ResourceConfig 更簡單的撰寫並管理 URI
 
 
 
-#### URI Design:
+#### CRUD Case
 
-| Action | URI                                                  | Method       | Content                                       |
-| ------ | ---------------------------------------------------- | ------------ | --------------------------------------------- |
-| Create | /casei/user/<br />xhttp.send("createname=Cano");     | POST         | 新增不需要 id、傳送新增的 UserName            |
-| Read   | /casei/user/2<br />/casei/users                      | GET<br />GET | 1: Select User by id<br />2: Select All Users |
-| Update | /casei/user/0<br />xhttp.send("updateName=Cano Su"); | PUT          | 要更新的資料 id、傳送更新的 UserName          |
-| Delete | /casei/user/3                                        | DELETE       | 要刪除的資料 id                               |
+| Action | Description                                        | Parameter                      |
+| ------ | -------------------------------------------------- | ------------------------------ |
+| Create | 新增 "Tirami"                                      | createname="Tirami"            |
+| Read   | 1: 查詢 id=2 的資料<br />2: 查詢全部               | 1: id=2<br />2: (no Parameter) |
+| Update | 修改 id=0 的資料，<br />新的 UserName ="TiramiASu" | id=0, updatename="TiramiASu"   |
+| Delete | 刪除 id=3 的資料                                   | id=3                           |
 
-\* **/casei/:** servlet path
 
-\* **xhttp:** XMLHttpRequest
+
+#### 兩者 URI 設計組成
+
+| Case   | URI                                                          | Control class                                                |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| REST   | <b style="color:red">/casei/rest/</b>user/id<br /><b style="color:red">/casei/rest/</b>uses | <b style="color:red">UserRestServlet</b> + UserRestServlet.RestRequest |
+| JAX-RS | <b style="color:red">/casei/jaxrs</b><u>/user</u>/3          | <b style="color:red">UserApplication</b> + <u>UserRS</u> + UserRS.method |
+
+
+
+REST URI Design
+
+| Action | URI                                  | Method       | Content                                       |
+| ------ | ------------------------------------ | ------------ | --------------------------------------------- |
+| Create | /casei/rest/user/                    | POST         | 利用 xhttp 傳送新增的 UserName                |
+| Read   | /casei/rest/user/2<br />/casei/users | GET<br />GET | 1: Select User by id<br />2: Select All Users |
+| Update | /casei/rest/user/0                   | PUT          | 要更新的資料 id 與 UserName                   |
+| Delete | /casei/rest/user/3                   | DELETE       | 要刪除的資料 id                               |
+
+\* **xhttp:** [XMLHttpRequest](#xhttp) Object
+
+
+
+JAX-RS URI Design
+
+| Action | URI                                            | Method       | Content                                       |
+| ------ | ---------------------------------------------- | ------------ | --------------------------------------------- |
+| Create | /casei/jaxrs/user/                             | POST         | 利用 xhttp 傳送新增的 UserName                |
+| Read   | /casei/jaxrs/user/2<br />/casei/jaxrs/user/all | GET<br />GET | 1: Select User by id<br />2: Select All Users |
+| Update | /casei/jaxrs/user/0                            | PUT          | 要更新的資料 id 與 UserName                   |
+| Delete | /casei/jaxrs/user/3                            | DELETE       | 要刪除的資料 id                               |
+
+
+
+![CaseI.RESTful](C:\Users\USER\Documents\casei_RESTful.PNG)
+
+<span id="xhttp"/>
 
 
 
@@ -46,6 +73,43 @@
 | send(body);                  | body 可為:<br />1: document: 序列化之後傳送出去<br />2: BodyInit: 可以是 Blob, BufferSource, FormData, URLSearchParams, ReadableStream, or USVString 等物件<br />* 預設為null |
 
 
+
+#### (JAX-RS) 建構 Jersey Container
+
+使用 ResourceConfig ，需 dependecy jersey container 才能順利執行
+
+```xml
+<!-- for Jax-RS -->
+<dependency>
+    <groupId>org.glassfish.jersey.containers</groupId>
+    <artifactId>jersey-container-servlet</artifactId>
+    <version>2.2</version>
+</dependency>
+```
+
+
+
+
+
+## Case II. Filter
+
+15-17
+
+## Case III. Session
+
+20-21
+
+## Case IV. Custom Tag
+
+21-23
+
+## Case V. Hibernate
+
+23-
+
+
+
+<span id="uri"/>
 
 
 

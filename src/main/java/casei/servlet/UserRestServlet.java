@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
-import javax.servlet.GenericServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,17 +20,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author TiramiAsu
  */
-@WebServlet("/casei/*")
+@WebServlet("/casei/rest/*")
 public class UserRestServlet extends HttpServlet{
 
-    UserDAO dao;
-    PrintWriter out;
+    private UserDAO dao;
+    private PrintWriter out;
     
     @Override
     public void init() throws ServletException {
         dao = new UserDAO();
     }
     
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/plain;charset=utf-8");
