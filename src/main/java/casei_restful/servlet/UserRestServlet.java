@@ -1,6 +1,6 @@
-package casei.servlet;
+package casei_restful.servlet;
 
-import casei.dao.UserDAO;
+import casei_restful.dao.UserDAO;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 

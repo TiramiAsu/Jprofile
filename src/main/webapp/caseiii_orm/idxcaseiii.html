@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="Jp">
+    <head>
+        <title>Case III</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script>
+            var App = angular.module('Jp', []);
+            App.controller('AjaxCtrl', function ($scope, $http) {
+
+                $scope.doQuery = function(){
+                    var path = '/Jprofile/caseiii/orm/book/' + $scope.pid;
+                    console.log(path);
+                    $http.get(path).then(function(res){
+                        console.log(res.data);
+                        $scope.mybooks = res.data;
+                    });
+                };
+
+            });
+        </script>
+
+    </head>
+    <body ng-controller="AjaxCtrl" style="padding: 15px">
+        <form class="pure-form" style="width: 700px; margin: 0px auto; padding-top: 100px;" method="post">
+            <fieldset>
+                <legend>
+                    <h3><b>User REST</b></h3>
+                    Description...
+                </legend>
+                <table>
+                    <tr>
+                        <td>ID:&emsp;</td>
+                        <td><input type="number" placeholder="ID" ng-model="pid"></td>
+                    </tr>
+                    <tr>
+                        <td>Name:&emsp;</td>
+                        <td><input type="text" placeholder="ID" id="pname" ng-model="pname"></td>
+                    </tr>
+                    <tr>
+                        <td>Price:&emsp;</td>
+                        <td><input type="number" id="pprice" ng-model="pprice"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <button type="button" class="pure-button pure-button-primary" ng-click="doCreate()">Create</button>&emsp;&emsp;
+            <button type="button" class="pure-button pure-button-primary" ng-click="doQuery()" >Query</button>&emsp;&emsp;
+            <button type="button" class="pure-button pure-button-primary" ng-click="doUpdate()" >Update</button>&emsp;&emsp;
+            <button type="button" class="pure-button pure-button-primary" ng-click="doDelete()" >Delete</button>&emsp;&emsp;
+
+            <div><br>Data:</div>
+            <div><br>{{mybooks}}</div>
+            <table class="pure-table pure-table-bordered">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in mybooks" ng-dblclick="get(x)">
+                        <td>{{ x.id}}</td>
+                        <td>{{ x.name}}</td>
+                        <td>{{ x.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package casei.jaxrs;
+package casei_restful.servlet.jaxrs;
 
-import casei.dao.UserDAO;
+import casei_restful.dao.UserDAO;
 import com.google.gson.Gson;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;

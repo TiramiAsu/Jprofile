@@ -1,4 +1,4 @@
-package casei.jaxrs;
+package casei_restful.servlet.jaxrs;
 
 import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
