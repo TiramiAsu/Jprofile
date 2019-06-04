@@ -20,8 +20,9 @@ public class UserDAO {
        
     static {
         users = new ArrayList<>(
-                Arrays.asList("andy1022", "ehdfhjsdf", "kfc0988", "pcabcd", 
-                        "tina0207", "hihi0857", "ttorz", "deerpeople", "end_game")
+                Arrays.asList("Eclipse", "Github",
+                        "Hibernate", "Java", "Maven", "Netbeans",
+                        "Oracle", "Postman", "RESTful", "Servlet")
         );
     }
     

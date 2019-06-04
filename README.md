@@ -91,21 +91,23 @@ JAX-RS URI Design
 
 
 
-## Case II. Filter
+## Case II. Session
 
-15-17
 
-## Case III. Session
 
-20-21
 
-## Case IV. Custom Tag
 
-21-23
+## Case III. Hibernate
 
-## Case V. Hibernate
+ 
 
-23-
+
+
+
+
+
+
+
 
 
 
