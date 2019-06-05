@@ -2,6 +2,7 @@ package c99_web.servlet;
 
 import c99_web.dao.DAOImpl;
 import c99_web.model.Products;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -44,22 +45,27 @@ public class ControllerServlet extends HttpServlet{
         Products products = new Products(pdCode, pdName, pdPrice, pdCost, pdUnit, pdStatus, pdRemark);
 //        out.print(products);
         dao.create(products);
-        resp.sendRedirect("/Jprofile/c99_web/test_jndi.jsp");
+        resp.sendRedirect("/Jprofile/c99_web/test_jndi_queryall.jsp");
     }
     
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doGet");
+        resp.setContentType("text/json");
+        resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         
+        /* test connection database info
         Configuration cfg = new Configuration().configure();
         out.println(cfg.configure().getProperty("hibernate.connection.datasource"));
         out.println(cfg.configure().getProperty("hibernate.dialect"));
         out.println(cfg.configure().getProperty("current_session_context_class"));
         out.println(cfg.configure().getProperty("cache.provider_class"));
         out.println(cfg.configure().getProperty("show_sql"));
-//        Set<Object> list = dao.queryAll(Products.class);
+         */
+        
+        out.print(new Gson().toJson(dao.queryAll(Products.class)));
     }
 
     
