@@ -8,8 +8,7 @@ import java.util.Set;
  */
 public class Customers{
 	
-    private int ctID;           //using for SQL
-    private String ctCode;
+    private String ctCode;      // key
     private String ctName;
     private String ctPhone;
     private int ctPoint;
@@ -32,14 +31,6 @@ public class Customers{
         this.ctPhone = ctPhone;
         this.ctPoint = ctPoint;
         this.ctRemark = ctRemark;
-    }
-
-    public int getCtID() {
-        return ctID;
-    }
-
-    public void setCtID(int ctID) {
-        this.ctID = ctID;
     }
 
     public String getCtCode() {
@@ -92,7 +83,7 @@ public class Customers{
 
     @Override
     public String toString() {
-        return "Customers{" + "ctID=" + ctID + ", ctCode=" + ctCode + ", ctName=" + ctName + ", ctPhone=" + ctPhone + ", ctPoint=" + ctPoint + ", ctRemark=" + ctRemark + ", orders=" + orders + '}';
+        return "Customers{" + "ctCode=" + ctCode + ", ctName=" + ctName + ", ctPhone=" + ctPhone + ", ctPoint=" + ctPoint + ", ctRemark=" + ctRemark + ", orders=" + orders + '}';
     }
 
 }

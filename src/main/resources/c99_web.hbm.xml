@@ -2,12 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="c99_web.model.Products" table="ICProducts">
-        <id column="PD_ID" name="pdID" type="int">
-            <generator class="native"/>
+        <id name="pdCode" type="string">
+            <column name="PD_CODE" />
+            <generator class="assigned" />
         </id>
-        <property name="pdCode" type="string">
-            <column name="PD_CODE" length="10" not-null="true" />
-        </property>
         <property name="pdName" type="string">
             <column name="PD_NAME" length="20" not-null="true" />
         </property>
@@ -21,7 +19,7 @@
             <column name="PD_UNIT" length="10" not-null="true" />
         </property>
         <property name="pdStatus" type="string">
-            <column name="PD_STATUS" length="10" not-null="true" />
+            <column name="PD_STATUS" length="2" not-null="true" />
         </property>
         <property name="pdRemark" type="string">
             <column name="PD_REMARK" length="50"/>

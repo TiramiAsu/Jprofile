@@ -9,42 +9,27 @@ import java.util.Set;
  */
 public class Orders{
     
-    private int odID;               // using for SQL
-    private String odCode;          // orders Code
+    private String odCode;          // key
     private String emCode;          // employees Code
     private String ctCode;          // customers Code
-    private LocalDateTime odTS;     // order timestamp
     private String odRemark;
-    private Set<OrderDetail> orderdetails;
+    private LocalDateTime odts;     // order timestamp
+    private Set<OrderItem> ois;     // order items
 
     public Orders() {
     }
 
-    public Orders(String odCode, String emCode, String ctCode, LocalDateTime odTS,
-            Set<OrderDetail> orderdetails) {
+    public Orders(String odCode, String emCode, String ctCode) {
         this.odCode = odCode;
         this.emCode = emCode;
         this.ctCode = ctCode;
-        this.odTS = odTS;
-        this.orderdetails = orderdetails;
     }
-
-    public Orders(String odCode, String emCode, String ctCode, LocalDateTime odTS,
-            String odRemark, Set<OrderDetail> orderdetails) {
+    
+    public Orders(String odCode, String ctCode, String odRemark, LocalDateTime odts) {
         this.odCode = odCode;
-        this.emCode = emCode;
         this.ctCode = ctCode;
-        this.odTS = odTS;
         this.odRemark = odRemark;
-        this.orderdetails = orderdetails;
-    }
-
-    public int getOdID() {
-        return odID;
-    }
-
-    public void setOdID(int odID) {
-        this.odID = odID;
+        this.odts = odts;
     }
 
     public String getOdCode() {
@@ -71,14 +56,6 @@ public class Orders{
         this.ctCode = ctCode;
     }
 
-    public LocalDateTime getOdTS() {
-        return odTS;
-    }
-
-    public void setOdTS(LocalDateTime odTS) {
-        this.odTS = odTS;
-    }
-
     public String getOdRemark() {
         return odRemark;
     }
@@ -87,17 +64,25 @@ public class Orders{
         this.odRemark = odRemark;
     }
 
-    public Set<OrderDetail> getOrderdetails() {
-        return orderdetails;
+    public LocalDateTime getOdts() {
+        return odts;
     }
 
-    public void setOrderdetails(Set<OrderDetail> orderdetails) {
-        this.orderdetails = orderdetails;
+    public void setOdts(LocalDateTime odts) {
+        this.odts = odts;
+    }
+
+    public Set<OrderItem> getOis() {
+        return ois;
+    }
+
+    public void setOis(Set<OrderItem> ois) {
+        this.ois = ois;
     }
 
     @Override
     public String toString() {
-        return "Orders{" + "odID=" + odID + ", odCode=" + odCode + ", emCode=" + emCode + ", ctCode=" + ctCode + ", odTS=" + odTS + ", odRemark=" + odRemark + ", orderdetails=" + orderdetails + '}';
-    }
-
+        return "Orders{" + "odCode=" + odCode + ", emCode=" + emCode + ", ctCode=" + ctCode + ", odRemark=" + odRemark + ", odts=" + odts + ", ois=" + ois + '}';
+    }   
+    
 }

@@ -5,13 +5,11 @@ import c99_web.model.Products;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -39,7 +37,7 @@ public class ControllerServlet extends HttpServlet{
         Integer pdPrice = Integer.parseInt(req.getParameter("price"));
         Integer pdCost =  Integer.parseInt(req.getParameter("cost"));
         String pdUnit =      req.getParameter("unit");
-        String pdStatus =    req.getParameter("status");
+        String pdStatus =   req.getParameter("status").equals("1")?"Y":"N";
         String pdRemark =    req.getParameter("remark");        
 
         Products products = new Products(pdCode, pdName, pdPrice, pdCost, pdUnit, pdStatus, pdRemark);

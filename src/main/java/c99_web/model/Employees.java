@@ -8,14 +8,14 @@ import java.util.Set;
  */
 public class Employees{
 
-    private int emID;                   // using for SQL
-    private String emCode;
+    private String emCode;                  // key
     private String emName;
     private String emPhone;
     private String emPosition;
     private String emRemark;    
-    private Set<TimeCardGoWork> emtcGo;
-    private Set<TimeCardOffWork> emtcOff;    
+    private Set<TimeCardGoWork> tcgTimes;
+    private Set<TimeCardOffWork> tcoTimes;
+    private Set<Orders> orders;
 
     public Employees() {
     }
@@ -33,14 +33,6 @@ public class Employees{
         this.emPhone = emPhone;
         this.emPosition = emPosition;
         this.emRemark = emRemark;
-    }
-
-    public int getEmID() {
-        return emID;
-    }
-
-    public void setEmID(int emID) {
-        this.emID = emID;
     }
 
     public String getEmCode() {
@@ -83,25 +75,33 @@ public class Employees{
         this.emRemark = emRemark;
     }
 
-    public Set<TimeCardGoWork> getEmtcGo() {
-        return emtcGo;
+    public Set<TimeCardGoWork> getTcgTimes() {
+        return tcgTimes;
     }
 
-    public void setEmtcGo(Set<TimeCardGoWork> emtcGo) {
-        this.emtcGo = emtcGo;
+    public void setTcgTimes(Set<TimeCardGoWork> tcgTimes) {
+        this.tcgTimes = tcgTimes;
     }
 
-    public Set<TimeCardOffWork> getEmtcOff() {
-        return emtcOff;
+    public Set<TimeCardOffWork> getTcoTimes() {
+        return tcoTimes;
     }
 
-    public void setEmtcOff(Set<TimeCardOffWork> emtcOff) {
-        this.emtcOff = emtcOff;
+    public void setTcoTimes(Set<TimeCardOffWork> tcoTimes) {
+        this.tcoTimes = tcoTimes;
     }
 
+    public Set<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Orders> orders) {
+        this.orders = orders;
+    }
+    
     @Override
     public String toString() {
-        return "Employees{" + "emID=" + emID + ", emCode=" + emCode + ", emName=" + emName + ", emPhone=" + emPhone + ", emPosition=" + emPosition + ", emRemark=" + emRemark + ", emtcGo=" + emtcGo + ", emtcOff=" + emtcOff + '}';
+        return "Employees{" + "emCode=" + emCode + ", emName=" + emName + ", emPhone=" + emPhone + ", emPosition=" + emPosition + ", emRemark=" + emRemark + ", tcgTimes=" + tcgTimes + ", tcoTimes=" + tcoTimes + '}';
     }
     
 }

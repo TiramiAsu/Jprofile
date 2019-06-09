@@ -12,11 +12,17 @@
         <title>c99_WEB</title>
     </head>
     <body>
+        <div>Manager Interface:</div>
         <form method="get" action="/Jprofile/servlet/controller">
             <fieldset>
-                <legend>Manager Interface:</legend>
+                <legend>QueryAll Product</legend>
+                <td><button type="submit" >Submit</button>
+            </fieldset>
+        </form>
+        <form method="post" action="/Jprofile/servlet/controller">
+            <fieldset>
+                <legend>Create Product</legend>
                 <table>
-                    Create Product:<p>
                     <tr>
                         <td>Code</td>
                         <td><input type="text" name="code" placeholder="A001"></td>
@@ -39,7 +45,10 @@
                     </tr>
                     <tr>
                         <td>Status</td>
-                        <td><input type="text" name="status" placeholder="販賣中"></td>
+                        <td>
+                            <input  type="radio" name="status" value="1">販售中
+                            <input  type="radio" name="status" value="0">停售
+                        </td>
                     </tr>
                     <tr>
                         <td>Remark</td>
