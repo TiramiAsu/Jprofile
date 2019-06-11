@@ -1,56 +1,67 @@
 package c99_web.model;
 
+import java.util.Set;
+
 /**
  *
  * @author TiramiAsu
  */
 public class Category {
     
-    private String cgCode;      // key
-    private String cgName;
-    private String cgRemark;
+    private Integer categoryId;
+    private String categoryName;
+    private String categoryRemark;
+    private Set<Product> products;
     
     public Category() {
     }
 
-    public Category(String cgCode, String cgName) {
-        this.cgCode = cgCode;
-        this.cgName = cgName;
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public Category(String cgCode, String cgName, String cgRemark) {
-        this.cgCode = cgCode;
-        this.cgName = cgName;
-        this.cgRemark = cgRemark;
+    public Category(String categoryName, String categoryRemark) {
+        this.categoryName = categoryName;
+        this.categoryRemark = categoryRemark;
     }
 
-    public String getCgCode() {
-        return cgCode;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCgCode(String cgCode) {
-        this.cgCode = cgCode;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getCgName() {
-        return cgName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCgName(String cgName) {
-        this.cgName = cgName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getCgRemark() {
-        return cgRemark;
+    public String getCategoryRemark() {
+        return categoryRemark;
     }
 
-    public void setCgRemark(String cgRemark) {
-        this.cgRemark = cgRemark;
+    public void setCategoryRemark(String categoryRemark) {
+        this.categoryRemark = categoryRemark;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     @Override
     public String toString() {
-        return "Category{" + "cgCode=" + cgCode + ", cgName=" + cgName + ", cgRemark=" + cgRemark + '}';
+        return "Category{" + "categoryId=" + categoryId + ", categoryName=" + categoryName + ", categoryRemark=" + categoryRemark + ", products=" + products + '}';
     }
+
+    
     
 }

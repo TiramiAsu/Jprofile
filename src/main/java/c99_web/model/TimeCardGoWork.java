@@ -8,45 +8,62 @@ import java.time.LocalDateTime;
  */
 public class TimeCardGoWork {
     
-    private int tcgID;              // key
-    private String emCode;
-    private LocalDateTime tcgTime;
+    private Integer goId;
+    private Long goTime;
+    private String goRemark;
+    private Employee employee;
 
     public TimeCardGoWork() {
     }
 
-    public TimeCardGoWork(String emCode, LocalDateTime tcgTime) {
-        this.emCode = emCode;
-        this.tcgTime = tcgTime;
+    public TimeCardGoWork(Long goTime, Employee employee) {
+        this.goTime = goTime;
+        this.employee = employee;
     }
 
-    public int getTcgID() {
-        return tcgID;
+    public TimeCardGoWork(Long goTime, String goRemark, Employee employee) {
+        this.goTime = goTime;
+        this.goRemark = goRemark;
+        this.employee = employee;
     }
 
-    public void setTcgID(int tcgID) {
-        this.tcgID = tcgID;
+    public Integer getGoId() {
+        return goId;
     }
 
-    public String getEmCode() {
-        return emCode;
+    public void setGoId(Integer goId) {
+        this.goId = goId;
     }
 
-    public void setEmCode(String emCode) {
-        this.emCode = emCode;
+    public Long getGoTime() {
+        return goTime;
     }
 
-    public LocalDateTime getTcgTime() {
-        return tcgTime;
+    public void setGoTime(Long goTime) {
+        this.goTime = goTime;
     }
 
-    public void setTcgTime(LocalDateTime tcgTime) {
-        this.tcgTime = tcgTime;
+    public String getGoRemark() {
+        return goRemark;
+    }
+
+    public void setGoRemark(String goRemark) {
+        this.goRemark = goRemark;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
     public String toString() {
-        return "TimeCardGoWork{" + "tcgID=" + tcgID + ", emCode=" + emCode + ", tcgTime=" + tcgTime + '}';
+        return "TimeCardGoWork{" + "goId=" + goId + ", goTime=" + goTime + ", goRemark=" + goRemark + ", employee=" + employee + '}';
     }
+
+    
 
 }
