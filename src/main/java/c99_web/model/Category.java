@@ -16,11 +16,13 @@ public class Category {
     public Category() {
     }
 
-    public Category(String categoryName) {
+    public Category(int categoryId, String categoryName) {
+        this.categoryId = categoryId;
         this.categoryName = categoryName;
     }
 
-    public Category(String categoryName, String categoryRemark) {
+    public Category(int categoryId, String categoryName, String categoryRemark) {
+        this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.categoryRemark = categoryRemark;
     }

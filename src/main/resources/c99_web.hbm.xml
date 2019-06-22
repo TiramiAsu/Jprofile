@@ -35,7 +35,7 @@
     <class name="c99_web.model.Category" table="ICCategory"> 
         <id name="categoryId" type="java.lang.Integer">
             <column name="CG_ID" />
-            <generator class="native" />
+            <generator class="assigned" />
         </id>
         <property name="categoryName" type="string">
             <column name="CG_NAME" length="20" not-null="true" />
@@ -46,7 +46,7 @@
           
         <!-- one-to-mamy -->
         <set name="products" table="ICproduct" cascade="save-update"
-            lazy="false" inverse="false">
+            lazy="false" inverse="true">
             <key column="CG_ID"/>
             <one-to-many class="c99_web.model.Product"/>
         </set>

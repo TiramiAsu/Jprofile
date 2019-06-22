@@ -73,5 +73,12 @@
                 </table>
             </fieldset>
         </form>
+        <form method="delete" action="/Jprofile/servlet/controller">
+            <fieldset>
+                <legend>Delete Product</legend>
+                <td><input type="text" placeholder="id"/>
+                <td><button type="submit" >Delete</button>
+            </fieldset>
+        </form>
     </body>
 </html>

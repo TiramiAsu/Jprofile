@@ -6,6 +6,8 @@ import c99_web.model.Product;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Set;
+import java.util.TreeSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +47,7 @@ public class ControllerServlet extends HttpServlet{
 
         Product products = new Product(pdName, pdPrice, pdCost, pdUnit, pdStatus, pdRemark);
 //        out.print(products);
-        products.setCategory(new Category(pdCategory));
+        products.setCategory(new Category(Integer.parseInt(cg[0]), pdCategory));
         dao.create(products);
         resp.sendRedirect("/Jprofile/c99_web/test_jndi_queryall.jsp");
     }
@@ -67,7 +69,17 @@ public class ControllerServlet extends HttpServlet{
         out.println(cfg.configure().getProperty("show_sql"));
          */
         
-        out.print(new Gson().toJson(dao.queryAll(Product.class)));
+//        out.print(new Gson().toJson(dao.queryAll(Product.class)));
+    }
+    
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doDelete");
+        resp.setCharacterEncoding("UTF-8");
+        PrintWriter out = resp.getWriter();
+        
+        dao.delete(Product.class, Integer.parseInt(req.getParameter("id")));
+        resp.sendRedirect("/Jprofile/c99_web/test_jndi_queryall.jsp");
     }
 
     

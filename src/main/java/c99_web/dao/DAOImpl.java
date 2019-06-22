@@ -19,7 +19,7 @@ import org.hibernate.cfg.Configuration;
  */
 public class DAOImpl {
 
-    public Object query(Class cls, String code) {
+    public Object query(Class cls, int id) {
 
         String sql = "SELECT * FROM JAVAWEB.ICPRODUCTS WHERE PD_CODE = 'A007'";
         
@@ -28,7 +28,7 @@ public class DAOImpl {
         Session session = sf.getCurrentSession();
         Transaction tx = session.beginTransaction();
 
-        Object object = session.get(cls, code);
+        Object object = session.get(cls, id);
 //        Object list = session.createQuery(sql).list();
         tx.commit();
         return object;
@@ -45,13 +45,13 @@ public class DAOImpl {
         return new LinkedHashSet<>(list);
     }
 
-    public boolean delete(Class cls, String code) {
+    public boolean delete(Class cls, int id) {
         Configuration cfg = new Configuration().configure();
         SessionFactory sf = cfg.buildSessionFactory();
         Session session = sf.getCurrentSession();
         Transaction tx = session.beginTransaction();
 
-        session.delete(query(cls, code));
+        session.delete(query(cls, id));
         tx.commit();
         return true;
     }
