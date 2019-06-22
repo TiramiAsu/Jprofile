@@ -19,6 +19,13 @@
                 <td><button type="submit" >Submit</button>
             </fieldset>
         </form>
+        <form method="get" action="/Jprofile/servlet/controller">
+            <fieldset>
+                <legend>Select a Product</legend>
+                <td><input type="text" placehorder="Select ID" name="selectid"></td>
+                <td><button type="submit" >Select a Product</button>
+            </fieldset>
+        </form>
         <form method="post" action="/Jprofile/servlet/controller">
             <fieldset>
                 <legend>Create Product</legend>

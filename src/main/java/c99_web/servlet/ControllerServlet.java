@@ -56,7 +56,6 @@ public class ControllerServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("doGet");
-        resp.setContentType("text/json");
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         
@@ -68,7 +67,16 @@ public class ControllerServlet extends HttpServlet{
         out.println(cfg.configure().getProperty("cache.provider_class"));
         out.println(cfg.configure().getProperty("show_sql"));
          */
-        
+        int id = -1;
+        try{
+            id =Integer.parseInt(req.getParameter("selectid"));
+            req.setAttribute("id", id);
+            req.getRequestDispatcher("/c99_web/test_jndi_query.jsp").forward(req, resp);
+            
+        }catch (Exception e){
+            req.getRequestDispatcher("/c99_web/test_jndi_queryall.jsp").forward(req, resp);
+        }        
+//        System.out.println(id);
 //        out.print(new Gson().toJson(dao.queryAll(Product.class)));
     }
     

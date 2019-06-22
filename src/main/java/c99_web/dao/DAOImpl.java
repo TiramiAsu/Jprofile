@@ -21,7 +21,7 @@ public class DAOImpl {
 
     public Object query(Class cls, int id) {
 
-        String sql = "SELECT * FROM JAVAWEB.ICPRODUCTS WHERE PD_CODE = 'A007'";
+//        String sql = "SELECT * FROM JAVAWEB.ICPRODUCTS WHERE PD_CODE = 'A007'";
         
         Configuration cfg = new Configuration().configure();
         SessionFactory sf = cfg.buildSessionFactory();
