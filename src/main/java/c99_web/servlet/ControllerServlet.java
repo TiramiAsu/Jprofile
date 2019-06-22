@@ -1,7 +1,8 @@
 package c99_web.servlet;
 
 import c99_web.dao.DAOImpl;
-import c99_web.model.Products;
+import c99_web.model.Category;
+import c99_web.model.Product;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,10 +39,13 @@ public class ControllerServlet extends HttpServlet{
         Integer pdCost =  Integer.parseInt(req.getParameter("cost"));
         String pdUnit =      req.getParameter("unit");
         String pdStatus =   req.getParameter("status").equals("1")?"Y":"N";
+            String[] cg = req.getParameter("category").split("=");
+        String pdCategory =   cg[1];
         String pdRemark =    req.getParameter("remark");        
 
-        Products products = new Products(pdCode, pdName, pdPrice, pdCost, pdUnit, pdStatus, pdRemark);
+        Product products = new Product(pdName, pdPrice, pdCost, pdUnit, pdStatus, pdRemark);
 //        out.print(products);
+        products.setCategory(new Category(pdCategory));
         dao.create(products);
         resp.sendRedirect("/Jprofile/c99_web/test_jndi_queryall.jsp");
     }
@@ -63,7 +67,7 @@ public class ControllerServlet extends HttpServlet{
         out.println(cfg.configure().getProperty("show_sql"));
          */
         
-        out.print(new Gson().toJson(dao.queryAll(Products.class)));
+        out.print(new Gson().toJson(dao.queryAll(Product.class)));
     }
 
     

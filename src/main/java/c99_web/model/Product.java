@@ -15,7 +15,7 @@ public class Product {
 	private String productUnit;
 	private String productStatus;   // Y/N
 	private String productRemark;
-        private Set<Order> orders;
+//        private Set<Order> orders;
         private Category category;
 	
     public Product() {
@@ -94,13 +94,13 @@ public class Product {
         this.productRemark = productRemark;
     }
 
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Set<Order> orders) {
-        this.orders = orders;
-    }
+//    public Set<Order> getOrders() {
+//        return orders;
+//    }
+//
+//    public void setOrders(Set<Order> orders) {
+//        this.orders = orders;
+//    }
 
     public Category getCategory() {
         return category;
@@ -110,9 +110,16 @@ public class Product {
         this.category = category;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productCost=" + productCost + ", productUnit=" + productUnit + ", productStatus=" + productStatus + ", productRemark=" + productRemark + ", orders=" + orders + ", category=" + category + '}';
+//    }
+
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productCost=" + productCost + ", productUnit=" + productUnit + ", productStatus=" + productStatus + ", productRemark=" + productRemark + ", orders=" + orders + ", category=" + category + '}';
+        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productCost=" + productCost + ", productUnit=" + productUnit + ", productStatus=" + productStatus + ", productRemark=" + productRemark + ", category=" + category + '}';
     }
+    
+    
     
 }

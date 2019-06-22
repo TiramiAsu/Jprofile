@@ -51,6 +51,18 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Category</td>
+                        <td>
+                            <select name="category">
+                                <option value="0=請選擇">---請選擇---</option>
+                                <option value="1=主餐類">主餐類</option>
+                                <option value="2=副餐類">副餐類</option>
+                                <option value="3=甜品">甜品</option>
+                                <option value="4=飲品">飲品</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Remark</td>
                         <td><input type="text" name="remark" placeholder="備註"></td>
                     </tr>
