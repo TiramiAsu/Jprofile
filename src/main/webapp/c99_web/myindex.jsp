@@ -10,6 +10,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>c99_WEB</title>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            
+            function doDelete() {
+                var method = "DELETE";
+                var path = "/Jprofile/servlet/controller/" + document.getElementById("deleteid").value;
+
+                doRun(xhttp, method, path);
+                console.log(path);
+
+                xhttp.open(method, path, true);
+                xhttp.send();
+            }
+
+            function doRun(xhttp, method, path) {
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                        //document.getElementById("req_result").innerText = this.responseText;
+                    }
+                };
+            }
+        </script>
     </head>
     <body>
         <div>Manager Interface:</div>
@@ -80,11 +103,11 @@
                 </table>
             </fieldset>
         </form>
-        <form method="delete" action="/Jprofile/servlet/controller">
+        <form>
             <fieldset>
                 <legend>Delete Product</legend>
-                <td><input type="text" placeholder="id"/>
-                <td><button type="submit" >Delete</button>
+                <td><input type="text" placeholder="id" id="deleteid"/>
+                <td><button type="button" onclick="doDelete()">Delete</button>
             </fieldset>
         </form>
     </body>

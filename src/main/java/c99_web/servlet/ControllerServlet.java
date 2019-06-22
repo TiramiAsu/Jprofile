@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author TiramiAsu
  */
-@WebServlet("/servlet/controller")
+@WebServlet("/servlet/controller/*")
 public class ControllerServlet extends HttpServlet{
     
     private DAOImpl dao = new DAOImpl();
@@ -86,7 +86,9 @@ public class ControllerServlet extends HttpServlet{
         resp.setCharacterEncoding("UTF-8");
         PrintWriter out = resp.getWriter();
         
-        dao.delete(Product.class, Integer.parseInt(req.getParameter("id")));
+        int id = Integer.parseInt(req.getPathInfo().split("/")[1]);
+        
+        dao.delete(Product.class,id);
         resp.sendRedirect("/Jprofile/c99_web/test_jndi_queryall.jsp");
     }
 
